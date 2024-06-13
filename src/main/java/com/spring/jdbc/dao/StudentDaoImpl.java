@@ -14,6 +14,13 @@ public class StudentDaoImpl implements StudentDao{
 		return r;
 	}
 
+	public int change(Student stud) {
+		// updating records
+		String query = "update student set name=?, city=? where id=?";
+		int r = this.jdbcTemplate.update(query, stud.getName(), stud.getCity(), stud.getId());
+		return r;
+	}
+	
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}

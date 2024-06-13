@@ -28,12 +28,24 @@ public class App
 		 * System.out.println("Number of record inserted : " + res);
 		 */
         
-        ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
-        StudentDao studentDao = context.getBean("studentDao", StudentDao.class);
-
-        Student student = new Student(103, "Rajesh", "Pune");
         
-        int cnt = studentDao.insert(student);
-        System.out.println("Record inserted : " + cnt);
+		/*
+		 * ApplicationContext context = new
+		 * ClassPathXmlApplicationContext("com/spring/jdbc/config.xml"); StudentDao
+		 * studentDao = context.getBean("studentDao", StudentDao.class);
+		 * 
+		 * Student student = new Student(103, "Rajesh", "Pune");
+		 * 
+		 * int cnt = studentDao.insert(student); System.out.println("Record inserted : "
+		 * + cnt);
+		 */
+        
+        ApplicationContext context = new ClassPathXmlApplicationContext("com/spring/jdbc/config.xml");
+        StudentDao dao = context.getBean("studentDao", StudentDao.class);
+        
+        Student student = new Student(103, "Rajesh Kumar", "Mumbai");
+        
+        int r = dao.change(student);
+        System.out.println("recored updated : " + r);
     }
 }
