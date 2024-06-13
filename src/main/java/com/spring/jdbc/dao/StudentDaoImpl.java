@@ -2,15 +2,19 @@ package com.spring.jdbc.dao;
 
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.stereotype.Component;
 
 import com.mysql.cj.result.Row;
 import com.mysql.cj.result.ValueFactory;
 import com.spring.jdbc.model.Student;
 
+@Component("studentDao")
 public class StudentDaoImpl implements StudentDao{
 
+	@Autowired
 	private JdbcTemplate jdbcTemplate;
 	
 	public int insert(Student stud) {
